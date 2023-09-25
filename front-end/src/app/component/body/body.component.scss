@@ -1,0 +1,29 @@
+@use '../../../assets/scss/variables.scss';
+
+.body{
+    width: calc(100% - 6rem);
+    height: calc(100vh - 2rem);
+    z-index: 0;
+    position: relative;
+    top:0;
+    transition: all .5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 6rem;
+    margin-top: 2rem;
+
+}
+.body-login {
+  justify-content: flex-start;
+  margin-left: 0;
+  margin-top: 0;
+}
+.body-trimmed{
+    width: calc(100% - 16rem);
+    margin-left: 16rem;
+}
+.body-md-screen{
+    width: calc(100% - 6rem);
+    margin-left: 6rem;
+}

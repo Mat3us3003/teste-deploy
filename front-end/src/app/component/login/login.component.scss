@@ -1,0 +1,117 @@
+@use '../../../assets/scss/variables.scss';
+
+.principal-container-login{
+    position: fixed;
+    left: 1px;
+    top: 1px;
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+    width: 40rem;
+    height: 100vh;
+    padding: 4rem;
+    border-radius: 0rem 6rem 6rem 0rem ;
+    background: #FFF;
+    img{
+        height: 4.5rem;
+        width: 5.6rem;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        justify-self: center;
+        gap: 2.5rem;
+        flex-shrink: 0;
+        p{
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            a{
+                text-decoration: none;
+                span{
+                    font-weight: 700;
+
+                }
+            }
+        }
+        .title-label{
+            display: flex;
+            font-size: 1.5rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            flex-direction: column;
+            .line{
+                height: 3px;
+                width: 39%;
+                background-color: variables.$yellow;
+                align-self: flex-start;
+                transform: translate(1px, -9px);
+            }
+        }
+        .input-icons{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            flex-shrink: 0;
+            i{
+                text-align: center;
+                align-self: center;
+                font-size: 1.2rem;
+            }
+            .email-error, .password-error{
+                display: none;
+                color: variables.$red;
+            }
+
+            span{
+              align-content: left;
+              position: absolute;
+              top: -20px;
+              left: 15em;
+              width: 100%;
+              color: variables.$red;
+            }
+            .input-area{
+                padding: 0.9rem;
+                width: 25rem;
+                height: 3rem;
+                flex-shrink: 0;
+                gap: 1rem;
+                border-radius: 5rem;
+                background: variables.$lightGrey;
+                display: flex;
+                position: relative;
+            }
+            input{
+                border: none;
+                background-color: transparent;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1rem;
+                outline: none;
+                width: 100%;
+
+            }
+            .invalid{
+              border: 1px solid black;
+              border-color: variables.$red;
+            }
+        }
+    }
+    .button-login-registration{
+        background-color: variables.$blue;
+        width: 25rem;
+    }
+    .button-frase{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+    }
+    .errorLogin{
+      color: variables.$red;
+    }
+}

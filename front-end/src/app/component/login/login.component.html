@@ -1,0 +1,35 @@
+<div class="principal-container-login">
+    <img src="../../../assets/img/logo.png" alt="Logo Easy Lab">
+    <form method="post" (ngSubmit)="login()" [formGroup]="loginForm" class="form">
+        <div class="title-label">
+            <h3>Login</h3>
+            <div class="line"></div>
+        </div>
+
+        <div class="input-icons">
+            <div class="input-area" [class.invalid]="loginForm.get('email')?.errors?.['required'] && submited">
+                <i class="fa-solid fa-envelope"></i>
+                <input class="input-field" type="email" placeholder="Email" formControlName="email" >
+                <span *ngIf="loginForm.get('email')?.errors?.['required'] && submited">Insira um email</span>
+            </div>
+
+            <div class="input-area" [class.invalid]="loginForm.get('password')?.errors?.['required'] && submited">
+                <i class="fa-solid fa-lock"></i>
+                <input class="input-field" type="password" placeholder="Senha" formControlName="password"
+                    >
+                <span *ngIf="loginForm.get('password')?.errors?.['required'] && submited">Insira uma senha</span>
+            </div>
+        </div>
+        <div class=" button-frase">
+            <button class="button button-login-registration">Logar</button>
+
+            <p>Ainda não possui conta? Faça aqui seu <a [routerLink]="['/register']"><span>Cadastro</span></a>
+            </p>
+        </div>
+
+        <div *ngIf="error.incorrectInfo" class="errorLogin">
+            <span>Email ou senha incorreto!</span>
+        </div>
+
+    </form>
+</div>

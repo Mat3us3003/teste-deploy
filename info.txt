@@ -1,0 +1,10 @@
+Como rodar o backend e o banco de dados
+(versão do node: 18.17.1)
+
+Criar um banco de dados chamado de easy_lab (pode ser criado no workbench)
+
+Abrir a pasta do back-end no vscode
+npm install
+npm install -g typescript
+npm install -g ts-node
+npm run dev

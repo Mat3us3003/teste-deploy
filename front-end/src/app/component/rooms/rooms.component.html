@@ -1,0 +1,258 @@
+<div class="principal-container">
+  <div class="search-menu">
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        class="input"
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Pesquise laboratórios, blocos  ou salas"
+      />
+      <i id="show-mobile" class="fa-solid fa-filter"></i>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a class="active">Ensino</a></li>
+        <li><a>Pesquisa</a></li>
+        <li><a>Extensão</a></li>
+        <button style="float: right" class="filter-button">
+          <i class="fa-solid fa-filter"></i>
+          Filtros
+        </button>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-img">
+      <img src="../../assets/img/lab1.png" alt="" />
+    </div>
+    <div class="card-body">
+      <div class="card-head">Laboratório 1</div>
+      <div class="card-description">
+        Bloco de mestrado em Ciência da Computação
+      </div>
+    </div>
+    <div class="card-buttons">
+      <a (click)="openModal(modalContent)" class="button button-schedule"
+        >Agendar</a
+      >
+      <a [routerLink]="['/room-details']" class="button button-details"
+        >Detalhes</a
+      >
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-img">
+      <img src="../../assets/img/lab1.png" alt="" />
+    </div>
+    <div class="card-body">
+      <div class="card-head">Laboratório 1</div>
+      <div class="card-description">
+        Bloco de mestrado em Ciência da Computação
+      </div>
+    </div>
+    <div class="card-buttons">
+      <a (click)="openModal(modalContent)" class="button button-schedule"
+        >Agendar</a
+      >
+      <a [routerLink]="['/room-details']" class="button button-details"
+        >Detalhes</a
+      >
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-img">
+      <img src="../../assets/img/lab1.png" alt="" />
+    </div>
+    <div class="card-body">
+      <div class="card-head">Laboratório 1</div>
+      <div class="card-description">
+        Bloco de mestrado em Ciência da Computação
+      </div>
+    </div>
+    <div class="card-buttons">
+      <a (click)="openModal(modalContent)" class="button button-schedule"
+        >Agendar</a
+      >
+      <a [routerLink]="['/room-details']" class="button button-details"
+        >Detalhes</a
+      >
+    </div>
+  </div>
+</div>
+
+<ng-template #modalContent>
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <h2 class="title-name">Agendamento do <span>Laboratório 01</span></h2>
+    </h4>
+    <button
+      type="button "
+      class="close none-border rounded"
+      aria-label="Fechar"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-section" id="part1">
+      <!-- Conteúdo da primeira parte -->
+      <form method="post">
+        <div class="form-group">
+          <label for="name">Título:</label>
+          <input
+            class="form-control rounded"
+            type="text"
+            name="title"
+            id="title-schedule"
+            placeholder="Ex: Maratona de programação T.O.P"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Descrição:</label>
+          <textarea
+            class="form-control"
+            id="description"
+            placeholder="Descreva aqui seu evento..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="repeat">Repetir:</label>
+          <select class="form-select" id="repeat" name="repeat">
+            <option value="">Selecione uma opção</option>
+            <option value="Nunca">Nunca</option>
+            <option value="Diariamente">Diariamente</option>
+            <option value="Semanalmente">Semanalmente</option>
+            <option value="Mensalmente">Mensalmente</option>
+            <option value="Anualmente">Anualmente</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date-start">Data de ínicio:</label>
+          <input class="form-control rounded" type="date" id="date-start" />
+        </div>
+        <div class="form-group">
+          <label for="time-start">Horário de ínicio:</label>
+          <select class="form-select rounded" id="time-start">
+            <option value="">Selecione uma opção&hellip;</option>
+            <option value="07:00">07:00</option>
+            <option value="07:30">07:30</option>
+            <option value="08:00">08:00</option>
+            <option value="08:30">08:30</option>
+            <option value="07:00">07:00</option>
+            <option value="07:30">07:30</option>
+            <option value="08:00">08:00</option>
+            <option value="08:30">08:30</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="time-duration">Duração:</label>
+          <select
+            class="form-select rounded"
+            id="time-duration"
+            aria-placeholder="Selecione uma opção"
+          >
+            <option value="">Selecione uma opção</option>
+            <option value="00:30">00:30</option>
+            <option value="01:00">01:00</option>
+            <option value="01:30">01:30</option>
+            <option value="02:00">02:00</option>
+            <option value="02:30">02:30</option>
+            <option value="03:00">03:00</option>
+            <option value="03:30">03:30</option>
+            <option value="06:00">06:00</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="form-section" id="part2" style="display: none">
+      <!-- Conteúdo da segunda parte -->
+      <form method="post">
+        <div class="form-group">
+          <label for="owner">Encarregado da reserva: </label>
+          <input
+            class="form-control rounded"
+            type="text"
+            name="owner"
+            id="owner"
+            placeholder="Ex: José da Silva"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="technician">Responsável Técnico: </label>
+          <input
+            class="form-control rounded"
+            name="technician"
+            id="technician"
+            placeholder="Ex: Maria da Silva"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="date-end">Data de final: </label>
+          <input class="form-control rounded" type="date" id="date-end" />
+        </div>
+        <div class="form-group group">
+          <div>
+            <label for="time-duration">Add Equipamentos: </label>
+            <select class="form-select rounded sizeM" id="time-duration">
+              <option value="">Selecione uma opção&hellip;</option>
+              <option value="not-len-ryzen5">Notebook Lenovo Ryzen 05</option>
+              <option value="wheelchair">Cadeira de Rodinha</option>
+              <option value="round-table">Mesa Redonda</option>
+            </select>
+          </div>
+          <div>
+            <label for="quantity">Quantidade:</label>
+            <input
+              class="form-control rounded sizeP"
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              max="5"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <form method="post"></form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary rounded"
+      onclick="previousSection()"
+    >
+      Anterior
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary rounded"
+      onclick="nextSection()"
+    >
+      Próximo
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary rounded"
+      (click)="closeModal()"
+    >
+      Cancelar
+    </button>
+    <button
+      type="submit"
+      class="btn btn-primary rounded"
+      id="saveButton"
+      style="display: none"
+    >
+      Salvar
+    </button>
+  </div>
+</ng-template>

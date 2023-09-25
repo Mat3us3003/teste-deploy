@@ -1,0 +1,38 @@
+<div class="principal-container-login">
+    <img src="../../../assets/img/logo.png" alt="Logo Easy Lab">
+    <form method="post" (ngSubmit)="register()" [formGroup]="registerForm" class="form">
+        <div class="title-label">
+            <h3>Cadastro</h3>
+            <div class="line"></div>
+        </div>
+
+        <div class="input-icons">
+            <div class="input-area" [class.invalid]="registerForm.get('name')?.errors?.['required'] && submited">
+                <i class="fa-solid fa-user"></i>
+                <input class="input-field" type="text" placeholder="Nome do usuário" formControlName="name">
+                <span *ngIf="registerForm.get('name')?.errors?.['required'] && submited">Insira um Nome</span>
+            </div>
+            <div class="input-area" [class.invalid]="registerForm.get('cpf')?.errors?.['required'] && submited">
+                <i class="fa-solid fa-address-card"></i>
+                <input class="input-field" type="text" placeholder="CPF" formControlName="cpf" mask="000.000.000-00">
+                <span *ngIf="registerForm.get('cpf')?.errors?.['required'] && submited">Insira um CPF</span>
+            </div>
+            <div class="input-area" [class.invalid]="registerForm.get('email')?.errors?.['required'] && submited">
+                <i class="fa-solid fa-envelope"></i>
+                <input class="input-field" type="email" placeholder="E-mail" formControlName="email">
+                <span *ngIf="registerForm.get('email')?.errors?.['required'] && submited">Insira um Email</span>
+            </div>
+            <div class="input-area" [class.invalid]="registerForm.get('password')?.errors?.['required'] && submited">
+                <i class="fa-solid fa-lock"></i>
+                <input class="input-field" type="password" placeholder="Senha" formControlName="password">
+                <span *ngIf="registerForm.get('password')?.errors?.['required'] && submited">Insira uma senha</span>
+            </div>
+
+        </div>
+        <div class="button-frase">
+            <button class="button button-login-registration">Cadastrar-se</button>
+            <p>Já possui conta? Faça aqui seu <a [routerLink]="['/login']"><span>Login</span></a></p>
+        </div>
+
+    </form>
+</div>

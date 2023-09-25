@@ -1,0 +1,123 @@
+@use "../../../assets/scss/variables.scss";
+
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  .img-text {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: row;
+    img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 6rem;
+    }
+  }
+  .text-name {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    height: 3rem;
+    background-color: variables.$blue;
+  }
+}
+
+.data-user {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  .data-text{
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0;
+    p{
+      font-size: 16px;
+      font-weight: 400;
+    }
+    span{
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+}
+.my-solicitations{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+    h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: variables.$blue;
+  }
+  table{
+    margin-bottom: 2rem;
+    text-align: left;
+    border-top: 1px solid variables.$grey;
+    tr, td, th{
+      border-bottom: 1px solid variables.$grey;
+      height: 3rem;
+
+    }
+  }
+
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: auto;
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.3rem;
+    label {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      display: flex;
+      height: 3rem;
+      padding: 0.25rem 1rem;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 3rem;
+      background-color: variables.$white;
+      border: 1px solid variables.$grey;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+  }
+}
+.btn-primary .rounded {
+  background-color: variables.$green !important;
+}
+.rounded {
+  border-radius: 2rem !important;
+}
+.form-group {
+  margin: 1rem 0;
+}
+.none-border {
+  border: none;
+  background-color: transparent;
+}
+input[type="checkbox"] {
+  border: 1px solid #000;
+  margin-left: 1rem;
+}
+.modal-body {
+  padding: 0 2rem 2rem 2rem;
+}

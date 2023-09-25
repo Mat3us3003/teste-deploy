@@ -1,0 +1,109 @@
+<div class="principal-container">
+  <div class="profile-header">
+    <div class="img-text">
+      <img src="../../../assets/img/profile/perfil.jpg" alt="Imagem do perfil">
+      <div class="text-name">
+        <h2 class="name-user">{{ data.name }}</h2>
+        <p class="type-user">Usuário {{data.type}}</p>
+      </div>
+    </div>
+
+    <button (click)="openModal(modalContent)" class="button">Editar perfil</button>
+  </div>
+  <div class="data-user">
+    <div class="data-text">
+      <p><span>CPF: </span>{{data.cpf | cpf}}</p>
+    </div>
+    <div class="data-text">
+      <p><span>E-mail: </span>{{data.email}}</p>
+    </div>
+    <div class="data-text">
+      <p><span>Telefone: </span>{{data.phone | phone}}</p>
+    </div>
+    <div class="data-text">
+      <p><span>Ocupação: </span>{{data.ocupation}}</p>
+    </div>
+    <div class="data-text">
+      <p><span>Organização: </span>{{data.organization}}</p>
+    </div>
+  </div>
+  <div class="my-solicitations">
+    <h3>Minhas solicitações</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Evento</th>
+          <th>Horário</th>
+          <th>Data</th>
+          <th>Espaço</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of requests">
+          <td>{{item.event_name}}</td>
+          <td>{{item.start_time}} - {{item.end_time}}</td>
+          <td>{{item.start_date | datePipe}}</td>
+          <td>{{item.room.name}}</td>
+          <td>{{item.status}}</td>
+          <td> <button class="button button-blue">Detalhes</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #modalContent>
+  <div class="modal-header">
+    <h4 class="modal-title">Editar perfil</h4>
+    <button
+      type="button "
+      class="close none-border rounded"
+      aria-label="Fechar"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Formulário dentro do modal -->
+    <form method="post" (ngSubmit)="update()" [formGroup]="updateForm">
+      <div class="form-group">
+        <label for="name">Nome:</label>
+      <input type="text" id="name" value={{data.name}} formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" value={{data.cpf}} formControlName="cpf" mask="000.000.000-00">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+      <input  type="text" id="email" value={{data.email}} formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone:</label>
+      <input type="text" id="phone" value={{data.phone}} formControlName="phone" mask="(00) 00000-0000">
+      </div>
+      <div class="form-group">
+        <label for="ocupation">Ocupação:</label>
+        <input type="text" id="ocupation" value={{data.ocupation}} formControlName="ocupation">
+      </div>
+
+      <div class="form-group">
+        <label for="organization">Organização:</label>
+      <input type="text" id="organization" value={{data.organization}} formControlName="organization">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary rounded"
+      (click)="closeModal()"
+    >
+      Cancelar
+    </button>
+    <button type="submit" class="button rounded" (click)="update()">Salvar</button>
+  </div>
+</ng-template>

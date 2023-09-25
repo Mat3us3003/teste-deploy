@@ -1,0 +1,32 @@
+<div class="principal-container">
+  <div class="solicitations">
+    <h3 id="title">Solicitações</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Solicitante</th>
+          <th>Espaço</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of requests">
+          <tr *ngIf="item.status === 'PENDENTE'">
+            <td>{{item.start_date | datePipe}} - {{item.end_date | datePipe}}</td>
+            <td>{{item.start_time}} - {{item.end_time}}</td>
+            <td>{{item.user_name}}</td>
+            <td>{{item.room_name}}</td>
+            <td>{{item.status}}</td>
+            <td class="buttons">
+              <button class="button button-schedule" (click)="authorize(item)">Autorizar</button>
+              <button class="button button-deny" (click)="denyAuthorization(item)">Negar</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

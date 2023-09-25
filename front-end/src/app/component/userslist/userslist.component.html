@@ -1,0 +1,123 @@
+<div class="principal-container">
+  <div class="list-users">
+    <h3>Lista de usuários</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome Usuário</th>
+          <th>E-mail</th>
+          <th>Ocupação</th>
+          <th>Organização</th>
+          <th>Tipo de usuário</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.ocupation == null ? 'Não possui': item.ocupation}}</td>
+          <td>{{item.organization == null ? 'Não possui': item.organization}}</td>
+          <td>{{item.type}}</td>
+          <td class="container-bottons">
+            <button class="button edit" id="rounded" title="Editar" (click)="openModal(modalContent)"
+              (click)="updateFormValues(item)"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="button button-red delete" id="rounded" title="Excluir" (click)="deleteUser(item.id_user)"><i
+                class="fa-solid fa-trash-can"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <modal-form #modal class="modal-edit-profiles">
+  <form method="post" [formGroup]="updateForm" (ngSubmit)="update()">
+    <h2>Editar Perfil</h2>
+    <input type="hidden" formControlName="id">
+    <div>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" formControlName="cpf">
+    </div>
+    <div>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+
+    <div>
+      <label for="ocupation">Ocupação:</label>
+      <input type="text" id="ocupation" formControlName="ocupation">
+    </div>
+
+
+    <div>
+      <label for="phone">Telefone:</label>
+      <input type="text" id="phone" formControlName="phone" mask="(00) 00000-0000">
+    </div>
+
+    <div>
+      <label for="organization">Organização:</label>
+      <input type="text" id="organization" formControlName="organization">
+    </div>
+    <div>
+      <label for="type">Tipo de usuário:</label>
+      <input type="text" id="type" formControlName="type">
+    </div>
+    <button class="button">Salvar</button>
+  </form>
+</modal-form> -->
+
+
+<ng-template #modalContent>
+  <div class="modal-header">
+    <h4 class="modal-title">Editar perfil</h4>
+    <button type="button " class="close none-border rounded" aria-label="Fechar" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Formulário dentro do modal -->
+    <form method="post" [formGroup]="updateForm" (ngSubmit)="update()">
+      <input type="hidden" formControlName="id">
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" formControlName="cpf" mask="000.000.000-00">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="text" id="email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone:</label>
+        <input type="text" id="phone" formControlName="phone" mask="(00) 00000-0000">
+      </div>
+      <div class="form-group">
+        <label for="ocupation">Ocupação:</label>
+        <input type="text" id="ocupation" formControlName="ocupation">
+      </div>
+
+      <div class="form-group">
+        <label for="organization">Organização:</label>
+        <input type="text" id="organization" formControlName="organization">
+      </div>
+      <div class="form-group">
+        <label for="type">Tipo de usuário:</label>
+        <input type="text" id="type" formControlName="type">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary rounded" (click)="closeModal()">
+      Cancelar
+    </button>
+    <button type="submit" class="button rounded" (click)="update()">Salvar</button>
+  </div>
+</ng-template>

@@ -1,0 +1,103 @@
+@use "../../../assets/scss/variables.scss";
+@import url("../../../assets/scss/_modal.scss");
+
+.fc {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.5em;
+}
+
+li {
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+b {
+  margin-right: 3px;
+}
+
+.demo-app {
+  display: flex;
+  min-height: 100%;
+  font-size: 14px;
+}
+
+.demo-app-sidebar {
+  width: 300px;
+  line-height: 1.5;
+  background: variables.$lightGreen;
+  border-right: 1px solid variables.$lightGreen;
+}
+
+.demo-app-sidebar-section {
+  padding: 2em;
+}
+
+.demo-app-main {
+  flex-grow: 1;
+  padding: 3em;
+}
+
+.create-event-button {
+  background-color: variables.$blue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.create-event-button:hover {
+  background-color: variables.$blue;
+}
+
+.principal-container {
+  position: relative;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 0.25rem;
+  z-index: 1000;
+  border-radius: 50%;
+  background-color: variables.$blue;
+  padding: 10px;
+}
+
+.floating-button button {
+  background: none;
+  border: none;
+  color: variables.$white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.rounded {
+  border-radius: 2rem !important;
+}
+
+.form-group {
+  margin: 1rem 0;
+}
+
+.none-border {
+  border: none;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  border: 1px solid variables.$black;
+  margin-left: 1rem;
+}
+

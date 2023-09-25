@@ -1,0 +1,221 @@
+<div class="principal-container">
+  <div class="search-cards">
+    <h1 class="title">Seja bem-vindo(a)!</h1>
+    <div class="search">
+      <input class="input" type="search" name="search" id="search"
+        placeholder="Pesquise laboratórios, blocos ou salas" />
+    </div>
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <h3 class="name">Ensino</h3>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-flask-vial"></i>
+        <h3 class="name">Pesquisa</h3>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-book"></i>
+        <h3 class="name">Extensão</h3>
+      </div>
+      <div class="card" (click)="openModal(modalAddRoom)">
+        <i class="fa-solid fa-plus"></i>
+        <h3 class="name">Adicionar sala</h3>
+      </div>
+    </div>
+  </div>
+  <div class="floating">
+    <button class="main">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+    <ul>
+      <li (click)="openModal(modalAddRoom)">
+        <label for="addRoom">Adicionar sala</label>
+        <button id="addRoom">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </button>
+      </li>
+      <li (click)="openModal(modalAddSchedule)">
+        <label for="addSchedule">Adicionar agendamento</label>
+        <button id="addSchedule">
+          <i class="fa-regular fa-calendar-days"></i>
+        </button>
+      </li>
+      <li (click)="openModal(modalAddEquipament)">
+        <label for="addEquipment">Adicionar equipamentos</label>
+        <button id="addEquipment">
+          <i class="fa-solid fa-tv"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- O modal add sala-->
+<ng-template #modalAddRoom>
+  <div class="modal-header">
+    <h4 class="modal-title">Adicionar Sala</h4>
+    <button type="button " class="close none-border rounded" aria-label="Fechar" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Formulário dentro do modal -->
+    <form method="post" (ngSubmit)="insert()" [formGroup]="insertForm">
+      <div class="form-group">
+        <label for="nameRoom">Nome da Sala:</label>
+        <input type="text" class="form-control rounded" id="nomeSala" name="nomeSala" formControlName="name" required />
+      </div>
+      <div class="form-group">
+        <label for="typeRoom">Tipo de Sala:</label>
+        <select id="typeRoom" name="typeRoom" class="form-select rounded" formControlName="type">
+          <option value="Ensino">Ensino</option>
+          <option value="Pesquisa">Pesquisa</option>
+          <option value="Extensão">Extensão</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="especifity">Especificação:</label>
+        <select id="especifity" name="especifity" class="form-select rounded" formControlName="especifity">
+          <option value="multiusuário">Multiusuário</option>
+          <option value="Específico">Específico</option>
+        </select>
+      </div>
+      <div class="form-group group">
+        <div>
+          <label for="equipament">Equipamentos da sala: </label>
+          <input type="text" class="form-control rounded" name="tagfield" id="tagfield" data-tagfield-name="nome" data-tagfield="field">
+        </div>
+        <div>
+          <label for="quantity">Quantidade:</label>
+          <input type="number" name="quantidade" class="form-control rounded small" id="quantidade" data-tagfield-name="quantidade" data-tagfield="field">
+        </div>
+        <div>
+          <button type="button" class="button" name="adicionar" value="Adicionar" data-tagfield="button"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+      <div data-tagfield="container">
+
+      </div>
+      <div class="form-group">
+        <label for="location">Localização:</label>
+        <input class="form-control rounded" type="text" id="location" name="location" formControlName="location" />
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacidade:</label>
+        <input class="form-control rounded" type="number" id="capacity" name="capacity" formControlName="capacity" />
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="photos">Fotos:</label>
+        <input class="form-control rounded" type="file" id="photos" name="photos" multiple accept="image/*" />
+      </div> -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded" (click)="closeModal()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-primary rounded">Salvar</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<!-- modal add Equipamento-->
+<ng-template #modalAddEquipament>
+  <div class="modal-header">
+    <h4 class="modal-title">Adicionar Equipamento</h4>
+    <button type="button " class="close none-border rounded" aria-label="Fechar" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Formulário dentro do modal -->
+    <form>
+      <div class="form-group">
+        <label for="name">Nome do Equipamento:</label>
+        <input type="text" class="form-control rounded" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="number_serie">Número de Série:</label>
+        <input class="form-control rounded" type="text" id="number_serie" name="number_serie" />
+      </div>
+      <div class="form-group">
+        <label for="patrimoy">Patrimônio:</label>
+        <input class="form-control rounded" type="text" id="patrimoy" name="patrimoy" />
+      </div>
+      <div class="form-group">
+        <label for="model">Modelo:</label>
+        <input class="form-control rounded" type="text" id="model" name="model" />
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status" class="form-select rounded">
+          <option value="">Selecione a opção</option>
+          <option value="usando">Usando</option>
+          <option value="livre">Livre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="local">Local</label>
+        <select class="form-select rounded" id="local" name="local">
+          <option value="">Selecione uma opção</option>
+          <option value="lab01">Laboratório 01</option>
+          <option value="lab02">Laboratório 02</option>
+          <option value="lab03">Laboratório 03</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary rounded" (click)="closeModal()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-primary rounded">Salvar</button>
+  </div>
+</ng-template>
+
+<!-- modal add Agendamento-->
+<ng-template #modalAddSchedule>
+  <div class="modal-header">
+    <h4 class="modal-title">Criar Novo Evento</h4>
+    <button type="button" class="close none-border" aria-label="Fechar" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="title">Título do evento</label>
+        <input type="text" class="form-control rounded" id="title" name="title" required />
+      </div>
+      <div class="form-group">
+        <label for="room">Espaço</label>
+        <select class="form-select rounded" id="room" name="room">
+          <option value="">Selecione uma opção</option>
+          <option value="lab01">Laboratório 01</option>
+          <option value="lab02">Laboratório 02</option>
+          <option value="lab03">Laboratório 03</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="startDateTime">Data e hora de início</label>
+        <input type="datetime-local" class="form-control rounded" id="startDateTime" name="start" required />
+      </div>
+
+      <div class="form-group">
+        <label for="endDateTime">Data e hora de término</label>
+        <input type="datetime-local" class="form-control rounded" id="endDateTime" name="end" required />
+      </div>
+
+      <div class="form-group">
+        <label for="allDay">Evento dia inteiro</label>
+        <input type="checkbox" class="form-check-input rounded" id="allDay" name="allDay" />
+      </div>
+
+      <button type="submit" class="btn btn-primary rounded">Salvar</button>
+    </form>
+  </div>
+</ng-template>
